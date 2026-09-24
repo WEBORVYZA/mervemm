@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serkan 🤍 Merve</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,182,193,.25), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(255,105,180,.15), transparent 30%),
+        linear-gradient(135deg,#fff8fb,#ffeef5,#fff);
+    color:#5d3d49;
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+}
+
+/* ARKA PLAN KALPLERİ */
+
+.hearts{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:0;
+}
+
+.heart{
+    position:absolute;
+    bottom:-50px;
+    font-size:20px;
+    opacity:.7;
+    animation:floatUp linear infinite;
+}
+
+.heart:nth-child(1){left:5%;animation-duration:9s;font-size:19px}
+.heart:nth-child(2){left:14%;animation-duration:12s;font-size:27px}
+.heart:nth-child(3){left:27%;animation-duration:8s}
+.heart:nth-child(4){left:39%;animation-duration:14s;font-size:18px}
+.heart:nth-child(5){left:51%;animation-duration:10s;font-size:30px}
+.heart:nth-child(6){left:64%;animation-duration:13s}
+.heart:nth-child(7){left:77%;animation-duration:9s;font-size:25px}
+.heart:nth-child(8){left:89%;animation-duration:15s}
+.heart:nth-child(9){left:94%;animation-duration:11s;font-size:18px}
+
+@keyframes floatUp{
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+    15%{opacity:.75}
+    100%{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* ANA ALAN */
+
+section{
+    position:relative;
+    z-index:2;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px 20px;
+}
+
+.hero-box{
+    max-width:850px;
+    animation:appear 1.5s ease;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.small-title{
+    letter-spacing:5px;
+    text-transform:uppercase;
+    font-size:12px;
+    color:#c57b95;
+    margin-bottom:20px;
+}
+
+.names{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(55px,12vw,105px);
+    font-weight:600;
+    color:#8e5068;
+    line-height:1;
+    text-shadow:0 5px 25px rgba(190,100,130,.15);
+}
+
+.names span{
+    color:#e59ab4;
+}
+
+.hero-heart{
+    font-size:48px;
+    margin:25px 0;
+    animation:pulse 1.8s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.25)}
+}
+
+.hero-text{
+    max-width:620px;
+    margin:auto;
+    font-family:'Cormorant Garamond',serif;
+    font-size:25px;
+    line-height:1.6;
+    color:#765361;
+}
+
+.scroll{
+    margin-top:45px;
+    font-size:12px;
+    letter-spacing:3px;
+    color:#b47b8e;
+}
+
+/* MEKTUP */
+
+.letter-section{
+    padding:100px 20px;
+}
+
+.container{
+    max-width:850px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    font-family:'Cormorant Garamond',serif;
+    font-size:48px;
+    color:#8e5068;
+    margin-bottom:45px;
+}
+
+.letter{
+    background:rgba(255,255,255,.8);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(220,150,170,.25);
+    border-radius:25px;
+    padding:45px;
+    box-shadow:0 20px 70px rgba(150,80,110,.12);
+    position:relative;
+}
+
+.letter:before{
+    content:"🤍";
+    position:absolute;
+    top:-22px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#fff6f9;
+    padding:7px 13px;
+    border-radius:50%;
+    font-size:25px;
+}
+
+.letter p{
+    font-family:'Cormorant Garamond',serif;
+    font-size:23px;
+    line-height:1.75;
+    margin-bottom:22px;
+}
+
+.signature{
+    text-align:right;
+    font-family:'Cormorant Garamond',serif;
+    font-size:27px;
+    color:#b66c87;
+    margin-top:35px;
+}
+
+/* KARTLAR */
+
+.cards-section{
+    padding:80px 20px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:rgba(255,255,255,.72);
+    border:1px solid rgba(220,150,170,.25);
+    border-radius:24px;
+    padding:30px 22px;
+    text-align:center;
+    box-shadow:0 15px 45px rgba(150,80,110,.08);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 25px 55px rgba(150,80,110,.15);
+}
+
+.card-icon{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:27px;
+    color:#98546e;
+    margin-bottom:12px;
+}
+
+.card p{
+    font-size:14px;
+    line-height:1.8;
+    color:#765763;
+}
+
+/* SÖZ */
+
+.quote-section{
+    padding:100px 20px;
+    text-align:center;
+}
+
+.quote{
+    max-width:750px;
+    margin:auto;
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(30px,5vw,48px);
+    line-height:1.4;
+    color:#8d5269;
+}
+
+.quote span{
+    color:#e39ab3;
+}
+
+/* ZARF */
+
+.envelope-section{
+    padding:80px 20px 120px;
+    text-align:center;
+}
+
+.envelope{
+    width:280px;
+    height:190px;
+    margin:50px auto 30px;
+    background:#f6bfd0;
+    position:relative;
+    cursor:pointer;
+    border-radius:8px;
+    box-shadow:0 20px 50px rgba(150,70,100,.2);
+    transition:.4s;
+}
+
+.envelope:hover{
+    transform:translateY(-8px) scale(1.03);
+}
+
+.envelope:before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    border-left:140px solid transparent;
+    border-right:140px solid transparent;
+    border-top:100px solid #efabc1;
+    z-index:3;
+}
+
+.envelope:after{
+    content:"♥";
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    font-size:35px;
+    color:white;
+    z-index:5;
+}
+
+.open-text{
+    color:#9b6076;
+    font-size:14px;
+}
+
+/* GİZLİ MESAJ */
+
+.message{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(70,35,50,.55);
+    backdrop-filter:blur(8px);
+    z-index:100;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.message.active{
+    display:flex;
+    animation:fade .4s ease;
+}
+
+@keyframes fade{
+    from{opacity:0}
+    to{opacity:1}
+}
+
+.message-box{
+    max-width:600px;
+    width:100%;
+    background:#fff9fb;
+    border-radius:25px;
+    padding:45px 35px;
+    text-align:center;
+    box-shadow:0 30px 90px rgba(50,20,35,.3);
+    animation:pop .5s ease;
+}
+
+@keyframes pop{
+    from{
+        transform:scale(.8);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.message-box h2{
+    font-family:'Cormorant Garamond',serif;
+    color:#9b536d;
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.message-box p{
+    font-family:'Cormorant Garamond',serif;
+    font-size:23px;
+    line-height:1.7;
+}
+
+.close{
+    margin-top:30px;
+    border:0;
+    background:#d889a5;
+    color:white;
+    padding:12px 28px;
+    border-radius:30px;
+    cursor:pointer;
+    font-family:'Poppins',sans-serif;
+}
+
+/* ALT */
+
+footer{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    padding:40px 20px 60px;
+    color:#a66b7f;
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;
+}
+
+footer .big-heart{
+    font-size:32px;
+    display:block;
+    margin-bottom:10px;
+}
+
+/* MOBİL */
+
+@media(max-width:700px){
+
+    .names{
+        font-size:62px;
+    }
+
+    .hero-text{
+        font-size:21px;
+    }
+
+    .letter{
+        padding:30px 23px;
+    }
+
+    .letter p{
+        font-size:20px;
+    }
+
+    .section-title{
+        font-size:40px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .quote{
+        font-size:31px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="hearts">
+    <div class="heart">🤍</div>
+    <div class="heart">🩷</div>
+    <div class="heart">♡</div>
+    <div class="heart">🤍</div>
+    <div class="heart">🩷</div>
+    <div class="heart">♡</div>
+    <div class="heart">🤍</div>
+    <div class="heart">🩷</div>
+    <div class="heart">♡</div>
+</div>
+
+<!-- BAŞLANGIÇ -->
+
+<section class="hero">
+
+    <div class="hero-box">
+
+        <div class="small-title">
+            sadece senin için
+        </div>
+
+        <div class="names">
+            Serkan <span>🤍</span> Merve
+        </div>
+
+        <div class="hero-heart">
+            🩷
+        </div>
+
+        <div class="hero-text">
+            Belki tanışalı çok uzun zaman olmadı...
+            ama bazı insanlar vardır,
+            hayatına ne kadar önce girdiği değil,
+            kalbine ne kadar kısa sürede dokunduğu önemlidir.
+        </div>
+
+        <div class="scroll">
+            ↓ biraz aşağıya in sevgilim ↓
+        </div>
+
+    </div>
+
+</section>
+
+<!-- MEKTUP -->
+
+<section class="letter-section">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Sana Bir Mektup
+        </h2>
+
+        <div class="letter">
+
+            <p>
+                Canım çiçeğim...
+            </p>
+
+            <p>
+                Belki diyeceksin ki daha tanışalı ne kadar oldu da
+                böyle bir şey hazırlamak nereden çıktı?
+                Aslında bunun benim de tam olarak bir cevabı yok.
+                Sadece içimden geldi.
+            </p>
+
+            <p>
+                Bazen bir insanı tanımak için yıllar gerekmez.
+                Bazen birkaç konuşma, birkaç gülüş,
+                bir bakış hatta bazen sadece yanında huzurlu
+                hissetmek bile yeter.
+            </p>
+
+            <p>
+                Sen benim hayatıma belki yeni girdin ama
+                içimde bıraktığın his yeni değilmiş gibi.
+                Sanki seni daha uzun zamandır tanıyormuşum gibi
+                bir yakınlık var içimde.
+            </p>
+
+            <p>
+                Bebeğim, sana büyük sözler verip
+                geleceği garanti edemem.
+                Ama sana verebileceğim en güzel söz şu:
+                <b>her zaman yanında olmaya çalışacağım.</b>
+            </p>
+
+            <p>
+                Mutlu olduğunda yanında olup mutluluğuna ortak olmak,
+                canın sıkkın olduğunda seni dinlemek,
+                sustuğunda bile ne hissettiğini anlamaya çalışmak
+                istiyorum.
+            </p>
+
+            <p>
+                Seni değiştirmeye değil,
+                olduğun halinle tanımaya ve sevmeye geldim.
+                Güzel günlerinde de zor günlerinde de
+                elinden geldiğince yanında duran biri olmak istiyorum.
+            </p>
+
+            <p>
+                Belki daha yolun çok başındayız.
+                Belki önümüzde bizi nelerin beklediğini bilmiyoruz.
+                Ama şu an bildiğim bir şey var:
+                <b>iyi ki karşıma çıktın.</b>
+            </p>
+
+            <p>
+                Ve eğer bir gün kendini yalnız hissedersen,
+                bu sayfayı hatırla.
+                Çünkü bir yerlerde seni düşünen,
+                yüzünün gülmesini isteyen
+                ve seni kaybetmek istemeyen biri var.
+            </p>
+
+            <div class="signature">
+                Seni düşünen biri... 🤍
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ÜÇ KART -->
+
+<section class="cards-section">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Sana Dair
+        </h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-icon">🤍</div>
+                <h3>Yanında</h3>
+                <p>
+                    Her şey güzelken yanında olmak kolay.
+                    Ben güzel günlerinin yanında olduğu kadar
+                    zor günlerinde de yanında olmak istiyorum.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🩷</div>
+                <h3>Gülüşün</h3>
+                <p>
+                    Belki farkında değilsin ama
+                    gülüşünün insanın bütün gününü değiştirebilecek
+                    kadar güzel bir tarafı var.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🌸</div>
+                <h3>Çiçeğim</h3>
+                <p>
+                    Hayatıma yeni gelmiş olabilirsin
+                    ama sana güzel davranmak,
+                    seni değerli hissettirmek içimden geliyor.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ANLAMLI SÖZ -->
+
+<section class="quote-section">
+
+    <div class="quote">
+        “Bazı insanlar hayatımıza
+        <span>geç gelir</span> ama
+        kalbimizde sanki hep varmış
+        gibi bir yer edinir.”
+    </div>
+
+</section>
+
+<!-- ZARF -->
+
+<section class="envelope-section">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Sana Sakladığım Bir Şey Var
+        </h2>
+
+        <p class="open-text">
+            Zarfın üzerine dokun 🤍
+        </p>
+
+        <div class="envelope" onclick="openLetter()"></div>
+
+    </div>
+
+</section>
+
+<!-- GİZLİ MEKTUP -->
+
+<div class="message" id="message">
+
+    <div class="message-box">
+
+        <h2>Merve'm 🤍</h2>
+
+        <p>
+            Eğer bu yazıyı okuyorsan bil ki
+            bunu hazırlarken yüzümde kocaman bir gülümseme vardı.
+            Çünkü bunu okuyacak kişinin sen olduğunu bilmek bile
+            bana yetiyor.
+            <br><br>
+            Canım çiçeğim, bebeğim...
+            Hayatımda ne kadar kalırsın bilmiyorum,
+            ama kaldığın sürece sana güzel anılar bırakmak
+            istiyorum.
+            <br><br>
+            Bir gün bu siteye tekrar baktığında
+            “Beni gerçekten düşünmüş” diyebilmen
+            benim için yeter.
+            <br><br>
+            İyi ki varsın. 🩷
+        </p>
+
+        <button class="close" onclick="closeLetter()">
+            Mektubu Kapat
+        </button>
+
+    </div>
+
+</div>
+
+<footer>
+
+    <span class="big-heart">🤍 🩷 🤍</span>
+
+    Sadece senin için hazırlandı.
+
+    <br>
+
+    <small>
+        Serkan'dan Merve'ye
+    </small>
+
+</footer>
+
+<script>
+
+function openLetter(){
+
+    document.getElementById("message").classList.add("active");
+
+    createHearts();
+
+}
+
+function closeLetter(){
+
+    document.getElementById("message").classList.remove("active");
+
+}
+
+function createHearts(){
+
+    for(let i=0;i<25;i++){
+
+        const heart=document.createElement("div");
+
+        heart.innerHTML=Math.random()>.5 ? "🤍" : "🩷";
+
+        heart.style.position="fixed";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.bottom="-30px";
+        heart.style.fontSize=(15+Math.random()*25)+"px";
+        heart.style.zIndex="200";
+        heart.style.pointerEvents="none";
+
+        document.body.appendChild(heart);
+
+        const duration=3+Math.random()*3;
+
+        heart.animate(
+            [
+                {
+                    transform:"translateY(0) rotate(0deg)",
+                    opacity:1
+                },
+                {
+                    transform:
+                    `translateY(-${window.innerHeight+100}px) rotate(${Math.random()*360}deg)`,
+                    opacity:0
+                }
+            ],
+            {
+                duration:duration*1000,
+                easing:"ease-out"
+            }
+        );
+
+        setTimeout(()=>{
+            heart.remove();
+        },duration*1000);
+
+    }
+
+}
+
+document.getElementById("message").addEventListener("click",function(e){
+
+    if(e.target===this){
+        closeLetter();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
